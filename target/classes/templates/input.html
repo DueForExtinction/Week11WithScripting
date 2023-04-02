@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+function validateForm(){
+	if(document.thisForm.fname.value==""){
+		alert("please provide a first name!");
+		document.thisForm.fname.focus();
+		return false;
+	}
+	if(document.thisForm.lname.value==""){
+		alert("please provide a last name!");
+		document.thisForm.lname.focus();
+		return false;
+	}
+	if(document.thisForm.position.value==""){
+		alert("please provide a posistion!");
+		document.thisForm.position.focus();
+		return false;
+	}
+}
+
+</script>
+</head>
+<body>
+<form th:object="${newPlayer}" th:action="@{/update/{id}(id=${newPlayer.id})}" method='POST' name="thisForm" onsubmit="return validateForm();">
+First name:<input name="fname" size="20" th:field="*{fname}"><br/>
+Last name:<input name="lname" size="20" th:field="*{lname}"><br/>
+Position played<input name="position" size="20" th:field="*{position}"><br/>
+<input name="submit" type="submit" value="submit"/>
+</form>
+<a href="viewAll">View all players</a>
+</body>
+</html>

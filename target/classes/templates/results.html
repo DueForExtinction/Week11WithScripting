@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form>
+<table>
+<tr th:each="currentPlayer : ${player}">
+<td th:text="${currentPlayer.id}"/>
+<td th:text="${currentPlayer.fname}"/>
+<td th:text="${currentPlayer.lname}"/>
+<td th:text="${currentPlayer.position}"/>
+<td><a th:href="@{/edit/{id}(id=${currentPlayer.id})}">Edit</a></td>
+<td><a th:href="@{/delete/{id}(id=${currentPlayer.id})}">Delete</a></td>
+</table>
+</form>
+<a href="../inputPlayer">Add new player</a>
+</body>
+</html>
